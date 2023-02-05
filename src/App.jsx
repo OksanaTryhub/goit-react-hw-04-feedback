@@ -22,20 +22,16 @@ export default function App() {
 
   const countTotalFeedback = () => {
     const { good, neutral, bad } = feedbackOptions;
-    const totalFeedback = good + neutral + bad;
-    return totalFeedback;
+    return good + neutral + bad;
   };
 
   const countPositiveFeedbackPercentage = () => {
     const { good } = feedbackOptions;
-    let positiveFeedbackPercentage = 0;
+
     if (good === 0) {
       return 0;
     }
-    positiveFeedbackPercentage = Math.floor(
-      (good * 100) / countTotalFeedback()
-    );
-    return positiveFeedbackPercentage;
+    return Math.round((good * 100) / countTotalFeedback());
   };
 
   const options = Object.keys(feedbackOptions);
